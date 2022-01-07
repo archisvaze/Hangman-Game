@@ -1,7 +1,4 @@
-
 var readlineSync = require('readline-sync');
-
-
 let words = [
   'dome', 'charlatan', 'prairie', 'result',
   'gliding', 'effect', 'institution', 'march',
@@ -44,11 +41,11 @@ function hangman() {
 
 ${dashArr.join("")}
 
-You can make 6 incorrect guesses before losing
+You can make 7 incorrect guesses before losing
 
 > input: ${input}`);
-
-  let chances = 6;
+  let hangmancounter = 0;
+  let chances = 7;
   while (chances > 0) {
     if (wordArr.includes(input)) {
       let indexes = [];
@@ -77,18 +74,115 @@ ${dashArr.join("")}
     }
     else {
       input = "";
-      input = readlineSync.question(`Incorrect guess you have ${chances - 1} more incorrect guess left: 
+      if (chances - 1 === 0) {
+        input = readlineSync.question(`
+${hangmanArr[hangmancounter]}
+
+Last chance! 
 
 ${dashArr.join("")}
 
 > input: ${input}`);
+        hangmancounter++;
+      }
+      else {
+        input = readlineSync.question(`
+${hangmanArr[hangmancounter]}
+
+Incorrect guess you have ${chances - 1} more incorrect guess left: 
+
+${dashArr.join("")}
+
+> input: ${input}`);
+        hangmancounter++;
+      }
     }
     chances--;
   }
   console.log("");
-  console.log(`You lost.
-Correct answer: ${randomWord}`);
+  console.log(`
+${hangmanArr[7]}
+
+You have run out of guesses,
+the correct answer was: ${randomWord}`);
   console.log("");
 }
 
+let hangman1 = (`
+      
+          ║
+          ║
+          ║
+          ║
+          ║
+    ══════╩═══
+`);
+let hangman2 = (`
+      ╔═══╗
+          ║
+          ║
+          ║
+          ║
+          ║
+    ══════╩═══
+`);
+let hangman3 = (`
+      ╔═══╗
+      |   ║
+          ║
+          ║
+          ║
+          ║
+    ══════╩═══
+`);
+let hangman4 = (`
+      ╔═══╗
+      |   ║
+      O   ║
+          ║
+          ║
+          ║
+    ══════╩═══
+`);
+let hangman5 = (`
+      ╔═══╗
+      |   ║
+      O   ║
+      |   ║
+          ║
+          ║
+    ══════╩═══
+`);
+let hangman6 = (`
+      ╔═══╗
+      |   ║
+      O   ║
+     -|-  ║
+          ║
+          ║
+    ══════╩═══
+`);
+let hangman7 = (`
+      ╔═══╗
+      |   ║
+      O   ║
+     -|-  ║
+      LL  ║
+     ███  ║
+    ══════╩═══
+`);
+let hangman8 = (`
+      ╔═══╗
+      |   ║
+      O   ║
+     -|-  ║
+     / l  ║
+  ███     ║
+    ══════╩═══
+`);
+
+
+let hangmanArr = [hangman1, hangman2, hangman3, hangman4, hangman5, hangman6, hangman7, hangman8];
+
 hangman();
+
