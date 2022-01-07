@@ -1,0 +1,22 @@
+{
+  "name": "day-10-hangman-game-archisvaze",
+  "version": "1.0.0",
+  "description": "- Clone the repo to your local system ``` git clone <repo url>  ``` ``` cd repo_name ``` - Initialize npm project ``` npm init ```",
+  "main": "words.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/McLaren-College/day-10-hangman-game-archisvaze.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/McLaren-College/day-10-hangman-game-archisvaze/issues"
+  },
+  "homepage": "https://github.com/McLaren-College/day-10-hangman-game-archisvaze#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
