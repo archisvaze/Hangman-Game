@@ -1,7 +1,6 @@
-// Use the readlineSync package to read the user's name and print a greeting
+
 var readlineSync = require('readline-sync');
-// Wait for user's response.
-// console.log('Hi ' + userName + '!');
+
 
 let words = [
   'dome', 'charlatan', 'prairie', 'result',
